@@ -1,0 +1,134 @@
+/* עיצוב משופר לכפתורי הקטגוריות במובייל */
+
+/* עיצוב כללי לקטגוריות */
+.categories-section {
+  padding: 3rem 0.5rem;
+}
+
+/* עיצוב הגריד של הקטגוריות */
+@media (max-width: 768px) {
+  .categories-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 כפתורים בשורה */
+    gap: 15px;
+    padding: 15px;
+  }
+  
+  /* עיצוב כרטיסי הקטגוריות */
+  .category-card {
+    position: relative;
+    padding: 20px 15px;
+    border-radius: 15px;
+    min-height: 150px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(17, 24, 39, 0.95));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  /* אפקט מעבר עכבר */
+  .category-card:active {
+    transform: scale(0.98);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* אייקון הקטגוריה */
+  .category-icon {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: #4a6cf7;
+    background: rgba(74, 108, 247, 0.1);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(74, 108, 247, 0.3);
+    z-index: 2;
+  }
+  
+  /* כותרת הקטגוריה */
+  .category-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-align: center;
+    color: white;
+    z-index: 2;
+  }
+  
+  /* תיאור הקטגוריה */
+  .category-card p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    z-index: 2;
+  }
+  
+  /* אפקט רקע */
+  .category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+      rgba(74, 108, 247, 0.1) 0%, 
+      rgba(139, 92, 246, 0.1) 50%, 
+      rgba(236, 72, 153, 0.1) 100%);
+    opacity: 0.5;
+    z-index: 1;
+    transition: all 0.5s ease;
+  }
+  
+  /* אפקט גלישה לכפתורים */
+  .categories-grid {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 20px;
+  }
+}
+
+/* התאמות למסכים קטנים יותר */
+@media (max-width: 480px) {
+  .categories-grid {
+    gap: 12px;
+    padding: 10px;
+  }
+  
+  .category-card {
+    padding: 18px 12px;
+    min-height: 140px;
+  }
+  
+  .category-icon {
+    font-size: 1.8rem;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 12px;
+  }
+  
+  .category-card h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  
+  .category-card p {
+    font-size: 0.8rem;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+}
