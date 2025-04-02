@@ -1,0 +1,48 @@
+/* סגנון פשוט עבור כרטיסי התכונות עם אפקט הקליק */
+.feature-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  border: 1px solid transparent;
+}
+
+/* הסתרת התיאור כברירת מחדל */
+.feature-description.hidden {
+  display: none;
+}
+
+/* הצגת התיאור במצב פעיל */
+.feature-card.active .feature-description.hidden {
+  display: block;
+  margin-top: 15px;
+}
+
+/* הדגשת הכרטיס במצב פעיל */
+.feature-card.active {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: var(--accent-color, #4a6cf7);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* אנימציה לאייקון במצב פעיל */
+.feature-card.active .feature-icon i {
+  color: var(--accent-color, #4a6cf7);
+}
+
+/* הוספת אינדיקטור לחיצה */
+.feature-card::after {
+  content: '+';
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 18px;
+  color: #666;
+}
+
+.feature-card.active::after {
+  content: '-';
+}
